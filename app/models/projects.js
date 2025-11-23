@@ -9,7 +9,7 @@ const ProjectSchema = new Schema(
             default: Date.now,
             immutable: true
         },
-        description: string
+        description: String
     },
     {
         collection: "projects"
