@@ -5,6 +5,7 @@ var cors = require('cors');
 
 var db = require('./config/db');
 
+var indexRouter = require('./app/routers/index');
 var userRouter = require('./app/routers/users');
 var contactRouter = require('./app/routers/contacts');
 var projectRouter = require('./app/routers/projects');
