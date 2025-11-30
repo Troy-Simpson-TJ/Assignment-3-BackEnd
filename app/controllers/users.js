@@ -48,7 +48,7 @@ module.exports.update = async function (req,res,next) {
     try{
         let updatedUser = UserModel(req.body);
         updatedUser._id = req.params.userId;
-        let result = await UserModel.updatedOne({ _id:req.params.userId}, updatedUser);
+        let result = await UserModel.updateOne({ _id:req.params.userId}, updatedUser);
         console.log(result);
 
         if (result.modifiedCount > 0) {

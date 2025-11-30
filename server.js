@@ -12,7 +12,7 @@ var userRouter = require('./app/routers/users');
 var contactRouter = require('./app/routers/contacts');
 var projectRouter = require('./app/routers/projects');
 var serviceRouter = require('./app/routers/services');
-var authRouter = require("./app/routes/auth");
+var authRouter = require("./app/routers/auth");
 
 var app = express();
 

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var serviceController = require('../controllers/services');
-const auth = require('../../middleware/auth');
+const auth = require('../middleware/auth');
 
 router.get('/', serviceController.getAll);
 router.post('/',auth, serviceController.create);
