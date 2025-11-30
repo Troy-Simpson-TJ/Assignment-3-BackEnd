@@ -6,10 +6,10 @@ const JWT_SECRET = process.env.JWT_SECRET || "SecretPass321";
 
 exports.signup = async(req,res) => {
     try{
-        const {firstName, lastName, email, username, password} = req.body;
+        const {firstName, lastName, email, password} = req.body;
 
-        if(!email || !password || !username)
-            return res.status(400).json({message: "Email, username and password are required"});
+        if(!email || !password)
+            return res.status(400).json({message: "Email and password are required"});
 
         
         const existingUser = await User.findOne({email});
@@ -29,8 +29,7 @@ exports.signup = async(req,res) => {
             message: "Account created successfully",
             user: {
                 id: newUser._id,
-                email: newUser.email,
-                username: newUser.username
+                email: newUser.email
             }
         });
     }
