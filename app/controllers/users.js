@@ -3,8 +3,7 @@ const bcrypt = require('bcryptjs');
 
 module.exports.getUser = async function (req,res,next) {
     try{
-        // Do not return password field
-        let user = await UserModel.findOne({ _id:req.params.userId}).select('-password');
+        let user = await UserModel.findOne({ _id:req.params.userId});
 
         res.json(user);
 
