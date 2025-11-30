@@ -3,6 +3,8 @@ var createError = require('http-errors');
 var logger = require('morgan');
 var cors = require('cors');
 
+require("dotenv").config();
+
 var db = require('./config/db');
 
 var indexRouter = require('./app/routers/index');
@@ -10,6 +12,7 @@ var userRouter = require('./app/routers/users');
 var contactRouter = require('./app/routers/contacts');
 var projectRouter = require('./app/routers/projects');
 var serviceRouter = require('./app/routers/services');
+var authRouter = require("./app/routes/auth");
 
 var app = express();
 
@@ -18,13 +21,14 @@ db();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
-
 app.use(logger('dev'));
+
 app.use('/', indexRouter);
 app.use('/api/users', userRouter);
 app.use('/api/contacts', contactRouter);
 app.use('/api/projects', projectRouter);
 app.use('/api/services', serviceRouter);
+app.use('/api/auth', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
