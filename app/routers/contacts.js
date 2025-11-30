@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var contactController = require('../controllers/contacts');
-var auth = require('../middleware/auth');
+var auth = require('../../middleware/auth');
 
 router.get('/', contactController.getAll);
 router.post('/',auth,contactController.create);
